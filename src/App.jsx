@@ -1,13 +1,15 @@
 import "./App.css";
-import Header from "./components/header/Header";
+import Navbar from "./components/Navbar";
 import About from "./pages/about/About";
+import AppRouter from "./router/AppRouter";
 // import Home from "./pages/home/Home";
 
 function App() {
   return (
     <div className="app flex flex-col items-center h-screen w-full">
-      <Header />
-      <About />
+      {/* <Navbar /> */}
+      <AppRouter />
+      {/* <About /> */}
       {/* <Home /> */}
     </div>
   );
