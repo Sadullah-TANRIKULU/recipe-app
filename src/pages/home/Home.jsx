@@ -40,7 +40,7 @@ const Home = () => {
   console.log(meal);
   console.log(recipeInfo);
   return (
-    <div className="home w-full ">
+    <div className="home w-full flex flex-col items-center justify-center bg-green-400 ">
       <Navbar />
       <h1>Food App</h1>
       <form
@@ -60,7 +60,7 @@ const Home = () => {
           <option value={meal}>TeaTime</option>
         </select>
       </form>
-      <div className="recipeCard grid grid-cols-5 ">
+      <div className="recipeCard grid lg:grid-cols-5 sm:grid-cols-2 bg-green-400 ">
         {recipeInfo.map((x) => {
           return <RecipeCard x={x} />;
         })}
