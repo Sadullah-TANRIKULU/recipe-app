@@ -52,7 +52,7 @@ const Home = () => {
         className="form border-2 border-white p-1 flex gap-3 "
       >
         <input value={query} type="text" onChange={handleInputData} />
-        <button type="submit" className="searchBtn">
+        <button type="submit" className="searchBtn p-2 bg-stone-700 font-semibold">
           Search
         </button>
         <select id="dropdownMenu" onChange={handleMealSelect}>

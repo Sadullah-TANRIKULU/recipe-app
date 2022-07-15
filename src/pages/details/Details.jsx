@@ -7,14 +7,14 @@ const Details = () => {
   console.log(state);
 
   return (
-    <div className="details w-full ">
+    <div className="details w-full bg-green-400">
       <Navbar />
-      <div className="detailsTitle grid grid-cols-3 border-b-4 border-black p-10 ">
+      <div className="detailsTitle grid lg:grid-cols-3 border-b-4 border-black p-10 ">
         <h1 className="text-6xl col-start-2 ">{state.recipe.label}</h1>
         <img src={diet} alt="diet" className="h-24 col-start-3 " />
       </div>
-      <div className="detailsSubDiv grid grid-cols-6 p-10">
-        <div className="detailsInfo grid grid-cols-2 col-start-2 text-lg font-semibold m-1 gap-x-1 ">
+      <div className="detailsSubDiv grid lg:grid-cols-6 p-10">
+        <div className="detailsInfo grid grid-cols-2 lg:col-start-2 text-lg font-semibold m-1 gap-x-1 ">
           <p>
             {state.recipe.totalNutrients.CA.label} :{" "}
             {Math.round(state.recipe.totalNutrients.CA.quantity)}
