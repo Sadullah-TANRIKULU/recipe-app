@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar";
 import RecipeCard from "./RecipeCard";
 
 const Home = () => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("egg");
   const [meal, setMeal] = useState();
   const [recipeInfo, setRecipeInfo] = useState([]);
   const APP_KEY = "b57bed7b28273c86ba4cf5e421359612";
@@ -17,16 +17,19 @@ const Home = () => {
   const handleSearchClick = async (e) => {
     e.preventDefault();
     console.log("clicked");
-    try {
-      const response = await axios.get(
-        `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`
-      );
-      setRecipeInfo(response.data.hits);
-      console.log(response);
-    } catch (error) {
-      console.error(error);
+    if (query) {
+      try {
+        const response = await axios.get(
+          `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`
+        );
+        setRecipeInfo(response.data.hits);
+        // console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      alert("Please, enter your food");
     }
-    console.log(query);
   };
 
   useEffect(() => {
@@ -37,8 +40,8 @@ const Home = () => {
     setMeal(e.target.value);
   };
 
-  console.log(meal);
-  console.log(recipeInfo);
+  // console.log(meal);
+  // console.log(recipeInfo);
   return (
     <div className="home w-full flex flex-col items-center justify-center bg-green-400 ">
       <Navbar />
@@ -61,9 +64,13 @@ const Home = () => {
         </select>
       </form>
       <div className="recipeCard grid lg:grid-cols-5 sm:grid-cols-2 bg-green-400 ">
-        {recipeInfo.map((x) => {
-          return <RecipeCard x={x} />;
+        {recipeInfo.map((x, index) => {
+          return <RecipeCard x={x} key={index} />;
         })}
+      </div>
+      <div className="alertMessage">
+      { recipeInfo?.length === 0 && (
+        <h1>The Food can not be found</h1> ) }
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const AppRouter = () => {
       {/* <h3 className="text-center">App Router</h3> */}
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Home />} />
         <Route path="/home/about" element={<About />} />
         <Route path="/home/details" element={<Details />} />
         <Route path="*" element={<Login />} />

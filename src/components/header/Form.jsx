@@ -22,8 +22,8 @@ const Form = () => {
     }
   }
 
-  console.log(passwordInput.length);
-  console.log(nameInput.length);
+  // console.log(passwordInput.length);
+  // console.log(nameInput.length);
   
 
   return (
